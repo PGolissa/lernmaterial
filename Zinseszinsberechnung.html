@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0105)https://moodle.leo-statz-berufskolleg.de/pluginfile.php/488633/mod_resource/content/0/zins_bootstrap.html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinseszinsberechnung</title>
+    <li><a href="../261 FlexGrid-Layout.html"target="blank">Zurück</a></li>
+
+    <!-- Bootstrap CSS einbinden -->
+    <link href="./Zinseszinsberechnung_files/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            text-align: center;
+        }
+        .total-zinsen {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Zinseszinsrechner</h1>
+
+        <!-- Form zur Eingabe -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <label for="kapital">Startkapital (in Euro):</label>
+                    <input type="number" class="form-control" id="kapital" placeholder="Startkapital" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="zinssatz">Zinssatz (in Prozent):</label>
+                    <input type="number" class="form-control" id="zinssatz" placeholder="Zinssatz" min="0" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="jahre">Laufzeit (in Jahren):</label>
+                    <input type="number" class="form-control" id="jahre" placeholder="Laufzeit" min="1">
+                </div>
+
+                <button class="btn btn-primary btn-block" onclick="berechneZinsen()">Berechnen</button>
+            </div>
+        </div>
+
+        <!-- Ergebnisse -->
+        <h2 class="text-center mt-5">Ergebnisse:</h2>
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Jahr</th>
+                    <th>Kapital zu Jahresbeginn (in Euro)</th>
+                    <th>Zinsen (in Euro)</th>
+                    <th>Kapital am Jahresende (in Euro)</th>
+                </tr>
+            </thead>
+            <tbody id="ergebnisse">
+                <!-- Ergebnisse werden hier angezeigt -->
+            </tbody>
+        </table>
+
+        <p class="total-zinsen text-center" id="gesamtZinsen">Gesamtzinsen: 0,00 €</p>
+    </div>
+
+    <!-- Bootstrap JS und jQuery einbinden -->
+    <script src="./Zinseszinsberechnung_files/jquery-3.5.1.slim.min.js.Download"></script>
+    <script src="./Zinseszinsberechnung_files/popper.min.js.Download"></script>
+    <script src="./Zinseszinsberechnung_files/bootstrap.min.js.Download"></script>
+
+    <script>
+        function berechneZinsen() {
+            
+			// Variablen für Startkapital, Zinssatz und Laufzeit holen
+            var startKapital = parseFloat(document.getElementById("kapital").value);
+            var zinssatz = parseFloat(document.getElementById("zinssatz").value) / 100;
+            var laufzeit = parseInt(document.getElementById("jahre").value);
+            var gesamtZinsen;
+            var jahr = 1;
+            var ausgabe = "<table class=table table-bordered mt-3>";
+
+            while (jahr<=laufzeit){
+                gesamtZinsen= startKapital *(1 + zinssatz) *laufzeit;
+                vausgabe = vausgabe + "<tr><td>" +jahr +"</td><td>" + startkapital+ "</td></tr>" ;
+                jahr++;
+                
+
+            }
+
+            ausgabe = ausgabe + "</table>";
+            ddocument.getElementById("idAusgabe").innerHTML = ausgabe;    Kapital * (1 + Zinssatz / 100) ^ x Jahre = Endkapital nach x Jahren.
+
+        }
+    </script>
+
+
+
+</body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)https://moodle.leo-statz-berufskolleg.de/pluginfile.php/487955/mod_resource/content/0/vorlage_rente.htnl.html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nachschüssiger Rentenrechner</title>
+    <li><a href="../261 FlexGrid-Layout.html"target="blank">Zurück</a></li>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: right;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nachschüssiger Rentenrechner</h1>
+
+    <label for="rente">Jährliche Rente:</label>
+    <input type="number" id="rente" value="500"><br><br>
+
+    <label for="zins">Jährlicher Zinssatz (%):</label>
+    <input type="number" id="zins" value="2"><br><br>
+
+    <label for="laufzeit">Laufzeit (Jahre):</label>
+    <input type="number" id="laufzeit" value="5"><br><br>
+
+    <button onclick="berechneRente()">Berechnen</button>
+
+    <div id="ausgabe"></div>
+
+    <script>
+        function berechneRente() {
+            var vAusgabe= '<table class="table table-bordered"><thead><tr><th>Jahr</th><th>Rj</th><th>Zj</th></tr></thead><tbody>';
+			var vRj = document.getElementById("idrente").value;
+            var vZj = document.getElementById("idzins").value;
+            var vr;
+            var vJahr = document.getElementById("idlaufzeit").value;
+           
+           
+            while( vJahr<=Rj ){
+            ausgabe = ausgabe +  '</tbody></table>' + vJahr;
+            vRj= vr * Zj * Rj +1; 
+            document.getElementById("ausgabe").innerHTML = vAusgabe;
+            ausgabe= ausgabe +  '<tr><th>' + vJahr + '</th><th>' +vRj.toFixed(2) "</td><th>" + vZj.toFixed(2) + '</th></th>' +vr.toFixed(2) +'</th></tr></thead><tbody>';
+            vJahr ++;
+           }       
+			
+
+            ausgabe += '</tbody></table>';
+            document.getElementById('ausgabe').innerHTML = ausgabe;
+        }
+    </script>
+
+
+</body></html>
